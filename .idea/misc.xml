@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5186680121089808" />
         <entry key="app/src/main/res/layout/activity_ville.xml" value="0.5911458333333334" />
         <entry key="app/src/main/res/layout/licence_item.xml" value="0.33061594202898553" />
+        <entry key="app/src/main/res/layout/licence_listview_item.xml" value="0.33061594202898553" />
       </map>
     </option>
   </component>

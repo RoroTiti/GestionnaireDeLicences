@@ -12,10 +12,5 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="GestionDeLicence" uuid="116fa91a-8637-42bd-a34b-b343c5414bdf">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <auth-provider>no-auth</auth-provider>
-      <schema-mapping />
-    </data-source>
   </component>
 </project>
