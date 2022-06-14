@@ -7,15 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.example.gestionnairedelicence.METIER.ESET;
-import com.example.gestionnairedelicence.METIER.WINDOWS;
 
 import java.util.ArrayList;
 
-public class WindowsAdapter extends ArrayAdapter<WINDOWS> {
+public class ESETSpinnerAdapter extends ArrayAdapter<ESET> {
     // Your custom values for the spinner (User)
-    private final ArrayList<WINDOWS> values;
+    private final ArrayList<ESET> values;
 
-    public WindowsAdapter(Context context, int textViewResourceId, ArrayList<WINDOWS> values) {
+    public ESETSpinnerAdapter(Context context, int textViewResourceId, ArrayList<ESET> values) {
         super(context, textViewResourceId, values);
         // Your sent context
         this.values = values;
@@ -27,7 +26,7 @@ public class WindowsAdapter extends ArrayAdapter<WINDOWS> {
     }
 
     @Override
-    public WINDOWS getItem(int position) {
+    public ESET getItem(int position) {
         return values.get(position);
     }
 

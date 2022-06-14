@@ -48,7 +48,6 @@ public class ClientDAO extends DAO<CLIENT> {
         valeurSQL.put(COL_MAIL, unClient.getMail());
         valeurSQL.put(COL_IDVILLE, unClient.getVille().getIdVille());
         long id = db.insert(TABLE_CLIENT, null, valeurSQL);
-        Log.v("id", String.valueOf(id));
         return ((int) id);
     }
 
@@ -60,7 +59,7 @@ public class ClientDAO extends DAO<CLIENT> {
         valeurSQL.put(COL_ADRESSE, unClient.getAdresse());
         valeurSQL.put(COL_TEL, unClient.getTel());
         valeurSQL.put(COL_MAIL, unClient.getMail());
-        valeurSQL.put(COL_IDCLIENT, unClient.getVille().getIdVille());
+        valeurSQL.put(COL_IDVILLE, unClient.getVille().getIdVille());
         db.update(TABLE_CLIENT, valeurSQL, COL_IDCLIENT + "=" + unClient.getIdClient(), null);
     }
 

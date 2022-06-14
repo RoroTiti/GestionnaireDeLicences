@@ -42,7 +42,6 @@ public class EsetDAO extends DAO<ESET> {
         valeurSQL.put(COL_ACTIVATIONKEY, uneLicence.getActivationKey());
         valeurSQL.put(COL_dateDeFinDeValidite, uneLicence.getDateDeFInDeValidite());
         long id = db.insert(TABLE_ESET, null, valeurSQL);
-        Log.v("id", String.valueOf(id));
         return ((int) id);
     }
 

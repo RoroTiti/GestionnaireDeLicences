@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.example.gestionnairedelicence.METIER.CLIENT;
-import com.example.gestionnairedelicence.METIER.ESET;
+import com.example.gestionnairedelicence.METIER.WINDOWS;
 
 import java.util.ArrayList;
 
-public class ClientsAdapter extends ArrayAdapter<CLIENT> {
+public class WindowsSpinnerAdapter extends ArrayAdapter<WINDOWS> {
     // Your custom values for the spinner (User)
-    private final ArrayList<CLIENT> values;
+    private final ArrayList<WINDOWS> values;
 
-    public ClientsAdapter(Context context, int textViewResourceId, ArrayList<CLIENT> values) {
+    public WindowsSpinnerAdapter(Context context, int textViewResourceId, ArrayList<WINDOWS> values) {
         super(context, textViewResourceId, values);
         // Your sent context
         this.values = values;
@@ -27,7 +26,7 @@ public class ClientsAdapter extends ArrayAdapter<CLIENT> {
     }
 
     @Override
-    public CLIENT getItem(int position) {
+    public WINDOWS getItem(int position) {
         return values.get(position);
     }
 
@@ -45,7 +44,7 @@ public class ClientsAdapter extends ArrayAdapter<CLIENT> {
         label.setTextColor(Color.BLACK);
         // Then you can get the current item using the values array (Users array) and the current position
         // You can NOW reference each method you have created in your bean object (User class)
-        label.setText(values.get(position).toString());
+        label.setText(values.get(position).getActivationKey());
 
         // And finally return your dynamic (or custom) view for each spinner item
         return label;
@@ -57,7 +56,7 @@ public class ClientsAdapter extends ArrayAdapter<CLIENT> {
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         TextView label = (TextView) super.getDropDownView(position, convertView, parent);
         label.setTextColor(Color.BLACK);
-        label.setText(values.get(position).toString());
+        label.setText(values.get(position).getActivationKey());
 
         return label;
     }

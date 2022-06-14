@@ -20,11 +20,8 @@ public class SQLite extends SQLiteOpenHelper {
                     "idVille integer primary key autoincrement," +
                     "libelle varchar(255)," +
                     "cp varchar(255))");
-//            db.execSQL("insert into VILLE(libelle, cp ) values ('Assais-Les-Jumeaux', '79600')");
-//            db.execSQL("insert into VILLE(libelle, cp) values ('Loudun','86200')");
-            Log.v("SQLite ok", "Table VILLE est créée");
         } catch (Exception e) {
-            Log.v("Erreur c table VILLE", e.toString());
+            Log.v("Erreur VILLE", e.toString());
         }
 
         //Creation Table CLIENT //
@@ -38,9 +35,8 @@ public class SQLite extends SQLiteOpenHelper {
                     "mail varchar(255)," +
                     "idVille integer," +
                     "foreign key (idVille) references VILLE (idVille))");
-            Log.v("SQLite ok ", "Table CLIENT est créée");
         } catch (Exception e) {
-            Log.v("Erreur c table CLIENT", e.toString());
+            Log.v("Erreur CLIENT", e.toString());
         }
 
         //Creation Table WINDOWS //
@@ -50,7 +46,7 @@ public class SQLite extends SQLiteOpenHelper {
                     "dateAchat varchar(255)," +
                     "activationKey varchar(255))");
         } catch (Exception e) {
-            Log.v("Erreur c table WINDOWS", e.toString());
+            Log.v("Erreur WINDOWS", e.toString());
         }
 
         //Creation Table ESET //
@@ -61,7 +57,7 @@ public class SQLite extends SQLiteOpenHelper {
                     "activationKey varchar(255)," +
                     "dateDeFinDeValidite varchar(255))");
         } catch (Exception e) {
-            Log.v("Erreur c table ESET", e.toString());
+            Log.v("Erreur ESET", e.toString());
         }
 
         //Creation Table LIAISON
@@ -75,7 +71,7 @@ public class SQLite extends SQLiteOpenHelper {
                     "foreign key (idWindows) references WINDOWS (idWindows)," +
                     "foreign key (idEset) references ESET (idEset))");
         } catch (Exception e) {
-            Log.v("Erreur ct LIAISON", e.toString());
+            Log.v("Erreur LIAISON", e.toString());
         }
 
     }

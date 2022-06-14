@@ -11,12 +11,12 @@ import com.example.gestionnairedelicence.R;
 
 import java.util.ArrayList;
 
-public class LicencesAdapter extends ArrayAdapter<Licence> {
+public class LicencesListViewAdapter extends ArrayAdapter<Licence> {
     // Your custom values for the spinner (User)
     private final ArrayList<Licence> values;
     private final Context context;
 
-    public LicencesAdapter(Context context, int textViewResourceId, ArrayList<Licence> values) {
+    public LicencesListViewAdapter(Context context, int textViewResourceId, ArrayList<Licence> values) {
         super(context, textViewResourceId, values);
         // Your sent context
         this.context = context;
@@ -49,7 +49,7 @@ public class LicencesAdapter extends ArrayAdapter<Licence> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.licence_listview_item, parent, false);
         }
 
-        TextView lblCleActivation = convertView.findViewById(R.id.lblCleActivation);
+        TextView lblCleActivation = convertView.findViewById(R.id.lblClient);
         lblCleActivation.setText(user.getActivationKey());
 
         TextView lblLogiciel = convertView.findViewById(R.id.lblLogiciel);

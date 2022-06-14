@@ -37,7 +37,6 @@ public class WindowsDAO extends DAO<WINDOWS> {
         valeurSQL.put(COL_DATEACHAT, uneLicence.getDateAchat());
         valeurSQL.put(COL_ACTIVATIONKEY, uneLicence.getActivationKey());
         long id = db.insert(TABLE_WINDOWS, null, valeurSQL);
-        Log.v("id", String.valueOf(id));
         return ((int) id);
     }
 

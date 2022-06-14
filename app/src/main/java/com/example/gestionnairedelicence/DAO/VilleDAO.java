@@ -38,7 +38,6 @@ public class VilleDAO extends DAO<VILLE> {
         valeurSQL.put(COL_LIBELLE, uneVille.getLibelle());
         valeurSQL.put(COL_CP, uneVille.getCp());
         long id = db.insert(TABLE_VILLE, null, valeurSQL);
-        Log.v("id", String.valueOf(id));
         return ((int) id);
     }
 

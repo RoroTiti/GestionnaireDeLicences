@@ -12,9 +12,9 @@ import com.example.gestionnairedelicence.DAO.ClientDAO;
 import com.example.gestionnairedelicence.DAO.EsetDAO;
 import com.example.gestionnairedelicence.DAO.LiaisonDAO;
 import com.example.gestionnairedelicence.DAO.WindowsDAO;
-import com.example.gestionnairedelicence.IHM.Adapters.ClientsAdapter;
-import com.example.gestionnairedelicence.IHM.Adapters.ESETAdapter;
-import com.example.gestionnairedelicence.IHM.Adapters.WindowsAdapter;
+import com.example.gestionnairedelicence.IHM.Adapters.ClientsSpinnerAdapter;
+import com.example.gestionnairedelicence.IHM.Adapters.ESETSpinnerAdapter;
+import com.example.gestionnairedelicence.IHM.Adapters.WindowsSpinnerAdapter;
 import com.example.gestionnairedelicence.METIER.CLIENT;
 import com.example.gestionnairedelicence.METIER.ESET;
 import com.example.gestionnairedelicence.METIER.LIAISON;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class AffectationActivity extends AppCompatActivity {
     private Spinner spLicences, spClients;
     RadioButton rbEset, rbWindows;
-    Button btValiderAffectation;
+    Button btValider;
     LIAISON liaisonSelectionnee;
 
 
@@ -50,12 +50,12 @@ public class AffectationActivity extends AppCompatActivity {
         rbWindows = findViewById(R.id.rbWindows);
         spLicences = findViewById(R.id.spLicences);
         spClients = findViewById(R.id.spClients);
-        btValiderAffectation = findViewById(R.id.btValiderAffectation);
+        btValider = findViewById(R.id.btValider);
 
         rbWindows.setOnCheckedChangeListener(cocheChange);
         rbEset.setOnCheckedChangeListener(cocheChange);
 
-        btValiderAffectation.setOnClickListener(btValiderAffectationClic);
+        btValider.setOnClickListener(btValiderAffectationClic);
 
         ClientDAO clientDAO = new ClientDAO(this);
         clientDAO.open();
@@ -63,11 +63,11 @@ public class AffectationActivity extends AppCompatActivity {
         ArrayList<CLIENT> clients = clientDAO.read();
         clientDAO.close();
 
-        ClientsAdapter adapter = new ClientsAdapter(this, android.R.layout.simple_spinner_item, clients);
+        ClientsSpinnerAdapter adapter = new ClientsSpinnerAdapter(this, android.R.layout.simple_spinner_item, clients);
         spClients.setAdapter(adapter); // Set the custom adapter to the spinner
 
         if (idLiaison != 0) {
-            btValiderAffectation.setText("Modifier");
+            btValider.setText("Modifier");
 
             if (liaisonSelectionnee.getWindows() != null) {
                 rbWindows.setChecked(true);
@@ -90,7 +90,7 @@ public class AffectationActivity extends AppCompatActivity {
             ArrayList<ESET> esets = esetDAO.read();
             esetDAO.close();
 
-            ESETAdapter adapter = new ESETAdapter(this, android.R.layout.simple_spinner_item, esets);
+            ESETSpinnerAdapter adapter = new ESETSpinnerAdapter(this, android.R.layout.simple_spinner_item, esets);
             spLicences.setAdapter(adapter); // Set the custom adapter to the spinner
 
             if (liaisonSelectionnee != null) {
@@ -104,7 +104,7 @@ public class AffectationActivity extends AppCompatActivity {
             ArrayList<WINDOWS> windows = windowsDAO.read();
             windowsDAO.close();
 
-            WindowsAdapter adapter = new WindowsAdapter(this, android.R.layout.simple_spinner_item, windows);
+            WindowsSpinnerAdapter adapter = new WindowsSpinnerAdapter(this, android.R.layout.simple_spinner_item, windows);
             spLicences.setAdapter(adapter); // Set the custom adapter to the spinner
 
             if (liaisonSelectionnee != null) {

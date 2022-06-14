@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IHM.Adapters.ClientActivity">
+    tools:context=".IHM.ClientActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btCreerClient"
+        android:id="@+id/btValider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Valider"

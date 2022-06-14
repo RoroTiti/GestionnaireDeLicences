@@ -9,13 +9,13 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.gestionnairedelicence.DAO.LiaisonDAO;
 import com.example.gestionnairedelicence.IHM.Adapters.Licence;
-import com.example.gestionnairedelicence.IHM.Adapters.LicencesAdapter;
+import com.example.gestionnairedelicence.IHM.Adapters.LicencesListViewAdapter;
 import com.example.gestionnairedelicence.METIER.LIAISON;
 import com.example.gestionnairedelicence.R;
 
 import java.util.ArrayList;
 
-public class ConsultActivity extends AppCompatActivity {
+public class LicencesActivity extends AppCompatActivity {
     ListView lvLicences;
     ArrayList<Licence> licences;
 
@@ -27,9 +27,9 @@ public class ConsultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consult);
+        setContentView(R.layout.activity_licences);
 
-        lvLicences = findViewById(R.id.lvLicences);
+        lvLicences = findViewById(R.id.lvClients);
 
         init();
 
@@ -63,7 +63,7 @@ public class ConsultActivity extends AppCompatActivity {
             licences.add(new Licence(liaison.getIdLiaison(), logiciel, client, cleActivation, dateAchat));
         }
 
-        LicencesAdapter licencesAdapter = new LicencesAdapter(this, android.R.layout.simple_spinner_item, licences);
+        LicencesListViewAdapter licencesAdapter = new LicencesListViewAdapter(this, android.R.layout.simple_spinner_item, licences);
         lvLicences.setAdapter(licencesAdapter);
     }
 
