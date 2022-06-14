@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/etWactivationKey"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IHM.LicenceActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/etWindows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Windows" />
+
+            <RadioButton
+                android:id="@+id/etEset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESET" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etActivationKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Clé d'activation"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etDateAchat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Date d'achat"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/etESETDateFinValidite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date de fin de validité"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="660dp"-->
+    <!--        android:layout_height="724dp"-->
+    <!--        android:layout_marginStart="1dp"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/linearLayout"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvWindows"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:text="WINDOWS" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/etWAtcivationKey"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="94dp"-->
+    <!--            android:ems="10"-->
+    <!--            android:inputType="textPersonName"-->
+    <!--            android:text="Clé d'activation" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/etWDateAchat"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="92dp"-->
+    <!--            android:ems="10"-->
+    <!--            android:inputType="textPersonName"-->
+    <!--            android:text="Date de l'achat" />-->
+    <!--    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/btLicenceValider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
