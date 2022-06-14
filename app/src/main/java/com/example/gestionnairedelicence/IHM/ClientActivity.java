@@ -16,7 +16,7 @@ import com.example.gestionnairedelicence.R;
 
 public class ClientActivity extends AppCompatActivity {
     EditText etNom, etPrenom, etAdresse, etTelephone, etMail, etCodePostal, etVille;
-    Button btValider, btnSupprimer;
+    Button btnValider, btnSupprimer;
     CLIENT clientSelectionne;
 
     @Override
@@ -30,12 +30,16 @@ public class ClientActivity extends AppCompatActivity {
         etNom = findViewById(R.id.etNom);
         etPrenom = findViewById(R.id.etPrenom);
         etAdresse = findViewById(R.id.etAdresse);
+        etVille = findViewById(R.id.etVille);
+        etCodePostal = findViewById(R.id.etCodePostal);
         etTelephone = findViewById(R.id.etTel);
         etMail = findViewById(R.id.etMail);
-        etCodePostal = findViewById(R.id.etCodePostal);
-        etVille = findViewById(R.id.etVille);
-        btValider = findViewById(R.id.btValider);
+
+        btnValider = findViewById(R.id.btnValider);
         btnSupprimer = findViewById(R.id.btnSupprimer);
+
+        btnValider.setOnClickListener(btValiderClic);
+        btnSupprimer.setOnClickListener(btnSupprimerClic);
 
         if (idClient != 0) {
             ClientDAO clientDAO = new ClientDAO(this);
@@ -43,12 +47,7 @@ public class ClientActivity extends AppCompatActivity {
 
             clientSelectionne = clientDAO.read(idClient);
             clientDAO.close();
-        }
 
-        btValider.setOnClickListener(btValiderClic);
-        btnSupprimer.setOnClickListener(btnSupprimerClic);
-
-        if (idClient != 0) {
             etNom.setText(clientSelectionne.getNom());
             etPrenom.setText(clientSelectionne.getPrenom());
             etAdresse.setText(clientSelectionne.getAdresse());

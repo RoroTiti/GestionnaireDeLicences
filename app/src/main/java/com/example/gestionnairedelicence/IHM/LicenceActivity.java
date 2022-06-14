@@ -34,11 +34,19 @@ public class LicenceActivity extends AppCompatActivity {
 
         rbEset = findViewById(R.id.rbEset);
         rbWindows = findViewById(R.id.rbWindows);
+
         etActivationKey = findViewById(R.id.etActivationKey);
         etDateAchat = findViewById(R.id.etDateAchat);
         etESETDateFinValidite = findViewById(R.id.etESETDateFinValidite);
+
         btnValider = findViewById(R.id.btnValider);
         btnSupprimer = findViewById(R.id.btnSupprimer);
+
+        rbEset.setOnCheckedChangeListener(rbEsetCoche);
+        rbWindows.setOnCheckedChangeListener(rbWindowsCoche);
+
+        btnValider.setOnClickListener(btLicenceValiderClic);
+        btnSupprimer.setOnClickListener(btnSupprimerClic);
 
         if (idWindows != 0 || idEset != 0) {
             rbWindows.setEnabled(false);
@@ -48,30 +56,28 @@ public class LicenceActivity extends AppCompatActivity {
         if (idWindows != 0) {
             WindowsDAO windowsDAO = new WindowsDAO(this);
             windowsDAO.open();
+
             windowsSelectionne = windowsDAO.read(idWindows);
             windowsDAO.close();
+
+            rbWindows.setChecked(true);
+
+            etActivationKey.setText(windowsSelectionne.getActivationKey());
+            etDateAchat.setText(windowsSelectionne.getDateAchat());
+
+            etESETDateFinValidite.setVisibility(View.INVISIBLE);
         } else if (idEset != 0) {
             EsetDAO esetDAO = new EsetDAO(this);
             esetDAO.open();
+
             esetSelectionne = esetDAO.read(idEset);
             esetDAO.close();
-        }
 
-        rbEset.setOnCheckedChangeListener(rbEsetCoche);
-        rbWindows.setOnCheckedChangeListener(rbWindowsCoche);
-
-        btnValider.setOnClickListener(btLicenceValiderClic);
-        btnSupprimer.setOnClickListener(btnSupprimerClic);
-
-        if (idWindows != 0) {
-            rbWindows.setChecked(true);
-            etESETDateFinValidite.setVisibility(View.INVISIBLE);
-            etActivationKey.setText(windowsSelectionne.getActivationKey());
-            etDateAchat.setText(windowsSelectionne.getDateAchat());
-        } else if (idEset != 0) {
             rbEset.setChecked(true);
+
             etActivationKey.setText(esetSelectionne.getActivationKey());
             etDateAchat.setText(esetSelectionne.getDateAchat());
+
             etESETDateFinValidite.setText(esetSelectionne.getDateDeFInDeValidite());
         } else {
             rbWindows.setChecked(true);

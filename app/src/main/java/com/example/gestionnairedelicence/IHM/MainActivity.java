@@ -11,52 +11,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gestionnairedelicence.R;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnLicences, btNouvelleLicence, btNouveauClient, btClients, btConsult, btAffectation, btQuitter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btConsult = findViewById(R.id.btnAffectations);
-        btClients = findViewById(R.id.btnClients);
-        btNouveauClient = findViewById(R.id.btnNouveauClient);
-        btnLicences = findViewById(R.id.btnLicences);
-        btNouvelleLicence = findViewById(R.id.btnNouvelleLicence);
-        btAffectation = findViewById(R.id.btnNouvelleAffectation);
-        btQuitter = findViewById(R.id.btnQuitter);
+        Button btnLicences = findViewById(R.id.btnLicences);
+        Button btnNouvelleLicence = findViewById(R.id.btnNouvelleLicence);
+        Button btnClients = findViewById(R.id.btnClients);
+        Button btnNouveauClient = findViewById(R.id.btnNouveauClient);
+        Button btnAffectations = findViewById(R.id.btnAffectations);
+        Button btnNouvelleAffectation = findViewById(R.id.btnNouvelleAffectation);
+        Button btnQuitter = findViewById(R.id.btnQuitter);
 
-        btConsult.setOnClickListener(bConsultLicences);
-        btnLicences.setOnClickListener(bLicences);
-        btNouvelleLicence.setOnClickListener(bNewLicence);
-        btClients.setOnClickListener(bClients);
-        btNouveauClient.setOnClickListener(bNewClient);
-        btAffectation.setOnClickListener(bAffectation);
-        btQuitter.setOnClickListener(quitterListener);
-    }
-
-    public Button getBtNouvelleLicence() {
-        return btNouvelleLicence;
-    }
-
-    public void setBtNouvelleLicence(Button btNouvelleLicence) {
-        this.btNouvelleLicence = btNouvelleLicence;
-    }
-
-    public Button getBtConsult() {
-        return btConsult;
-    }
-
-    public void setBtConsult(Button btConsult) {
-        this.btConsult = btConsult;
-    }
-
-    public Button getBtQuitter() {
-        return btQuitter;
-    }
-
-    public void setBtQuitter(Button btQuitter) {
-        this.btQuitter = btQuitter;
+        btnLicences.setOnClickListener(btnLicencesClic);
+        btnNouvelleLicence.setOnClickListener(btnNouvelleLicenceClic);
+        btnClients.setOnClickListener(btnClientsClic);
+        btnNouveauClient.setOnClickListener(btnNouveauClientClic);
+        btnAffectations.setOnClickListener(btnAffectationsClic);
+        btnNouvelleAffectation.setOnClickListener(btnNouvelleAffectationClic);
+        btnQuitter.setOnClickListener(btnQuitterClic);
     }
 
     private void quitter() {
@@ -74,35 +49,35 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private final View.OnClickListener quitterListener = view -> quitter();
-
-    private final View.OnClickListener bConsultLicences = view -> {
-        Intent iConsult = new Intent(this, AffectationsActivity.class);
-        startActivity(iConsult);
-    };
-
-    private final View.OnClickListener bNewClient = view -> {
-        Intent iConsult = new Intent(this, ClientActivity.class);
-        startActivity(iConsult);
-    };
-
-    private final View.OnClickListener bClients = view -> {
-        Intent iConsult = new Intent(this, ClientsActivity.class);
-        startActivity(iConsult);
-    };
-
-    private final View.OnClickListener bLicences = view -> {
+    private final View.OnClickListener btnLicencesClic = view -> {
         Intent iConsult = new Intent(this, LicencesActivity.class);
         startActivity(iConsult);
     };
 
-    private final View.OnClickListener bNewLicence = view -> {
+    private final View.OnClickListener btnNouvelleLicenceClic = view -> {
         Intent iConsult = new Intent(this, LicenceActivity.class);
         startActivity(iConsult);
     };
 
-    private final View.OnClickListener bAffectation = view -> {
+    private final View.OnClickListener btnClientsClic = view -> {
+        Intent iConsult = new Intent(this, ClientsActivity.class);
+        startActivity(iConsult);
+    };
+
+    private final View.OnClickListener btnNouveauClientClic = view -> {
+        Intent iConsult = new Intent(this, ClientActivity.class);
+        startActivity(iConsult);
+    };
+
+    private final View.OnClickListener btnAffectationsClic = view -> {
+        Intent iConsult = new Intent(this, AffectationsActivity.class);
+        startActivity(iConsult);
+    };
+
+    private final View.OnClickListener btnNouvelleAffectationClic = view -> {
         Intent iConsult = new Intent(this, AffectationActivity.class);
         startActivity(iConsult);
     };
+
+    private final View.OnClickListener btnQuitterClic = view -> quitter();
 }

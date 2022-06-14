@@ -65,7 +65,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btValider"
+        android:id="@+id/btnValider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Valider"
@@ -78,7 +78,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Supprimer"
-        app:layout_constraintBottom_toTopOf="@+id/btValider"
+        app:layout_constraintBottom_toTopOf="@+id/btnValider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

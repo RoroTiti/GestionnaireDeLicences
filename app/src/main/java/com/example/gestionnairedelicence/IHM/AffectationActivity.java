@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class AffectationActivity extends AppCompatActivity {
     private Spinner spLicences, spClients;
     RadioButton rbEset, rbWindows;
-    Button btValider, btnSupprimer;
+    Button btnValider, btnSupprimer;
     LIAISON liaisonSelectionnee;
 
     @Override
@@ -37,25 +37,19 @@ public class AffectationActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int idLiaison = intent.getIntExtra("idLiaison", 0);
 
-        if (idLiaison != 0) {
-            LiaisonDAO liaisonDAO = new LiaisonDAO(this);
-            liaisonDAO.open();
-
-            liaisonSelectionnee = liaisonDAO.read(idLiaison);
-            liaisonDAO.close();
-        }
-
         rbEset = findViewById(R.id.rbEset);
         rbWindows = findViewById(R.id.rbWindows);
+
         spLicences = findViewById(R.id.spLicences);
         spClients = findViewById(R.id.spClients);
-        btValider = findViewById(R.id.btValider);
+
+        btnValider = findViewById(R.id.btnValider);
         btnSupprimer = findViewById(R.id.btnSupprimer);
 
         rbWindows.setOnCheckedChangeListener(cocheChange);
         rbEset.setOnCheckedChangeListener(cocheChange);
 
-        btValider.setOnClickListener(btValiderAffectationClic);
+        btnValider.setOnClickListener(btValiderAffectationClic);
         btnSupprimer.setOnClickListener(btnSupprimerClic);
 
         ClientDAO clientDAO = new ClientDAO(this);
@@ -68,6 +62,12 @@ public class AffectationActivity extends AppCompatActivity {
         spClients.setAdapter(adapter); // Set the custom adapter to the spinner
 
         if (idLiaison != 0) {
+            LiaisonDAO liaisonDAO = new LiaisonDAO(this);
+            liaisonDAO.open();
+
+            liaisonSelectionnee = liaisonDAO.read(idLiaison);
+            liaisonDAO.close();
+
             if (liaisonSelectionnee.getWindows() != null) {
                 rbWindows.setChecked(true);
             } else {
