@@ -7,17 +7,20 @@ import android.widget.ListView;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.gestionnairedelicence.DAO.LiaisonDAO;
-import com.example.gestionnairedelicence.IHM.Adapters.Licence;
-import com.example.gestionnairedelicence.IHM.Adapters.LicencesListViewAdapter;
-import com.example.gestionnairedelicence.METIER.LIAISON;
+import com.example.gestionnairedelicence.DAO.EsetDAO;
+import com.example.gestionnairedelicence.DAO.WindowsDAO;
+import com.example.gestionnairedelicence.IHM.Adapters.ESETListViewAdapter;
+import com.example.gestionnairedelicence.IHM.Adapters.WindowsListViewAdapter;
+import com.example.gestionnairedelicence.METIER.ESET;
+import com.example.gestionnairedelicence.METIER.WINDOWS;
 import com.example.gestionnairedelicence.R;
 
 import java.util.ArrayList;
 
 public class LicencesActivity extends AppCompatActivity {
-    ListView lvLicences;
-    ArrayList<Licence> licences;
+    ListView lvWindows, lvEset;
+    ArrayList<WINDOWS> windows;
+    ArrayList<ESET> esets;
 
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -29,49 +32,46 @@ public class LicencesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_licences);
 
-        lvLicences = findViewById(R.id.lvClients);
+        lvWindows = findViewById(R.id.lvWindows);
+        lvEset = findViewById(R.id.lvEset);
 
         init();
 
-        lvLicences.setOnItemClickListener(elementSectionne);
+        lvWindows.setOnItemClickListener(windowsSectionne);
+        lvEset.setOnItemClickListener(esetSectionne);
     }
 
     private void init() {
-        LiaisonDAO liaisonDAO = new LiaisonDAO(this);
-        liaisonDAO.open();
+        WindowsDAO windowsDAO = new WindowsDAO(this);
+        windowsDAO.open();
+        windows = windowsDAO.read();
+        windowsDAO.close();
 
-        ArrayList<LIAISON> liaisons = liaisonDAO.read();
-        liaisonDAO.close();
+        EsetDAO esetDAO = new EsetDAO(this);
+        esetDAO.open();
+        esets = esetDAO.read();
+        esetDAO.close();
 
-        licences = new ArrayList<>();
+        WindowsListViewAdapter windowsAdapter = new WindowsListViewAdapter(this, android.R.layout.simple_spinner_item, windows);
+        lvWindows.setAdapter(windowsAdapter);
 
-        for (LIAISON liaison : liaisons) {
-            String logiciel = liaison.getWindows() != null
-                    ? "Windows"
-                    : "ESET";
-
-            String cleActivation = liaison.getWindows() != null
-                    ? liaison.getWindows().getActivationKey()
-                    : liaison.getEset().getActivationKey();
-
-            String client = liaison.getClient().toString();
-
-            String dateAchat = liaison.getWindows() != null
-                    ? liaison.getWindows().getDateAchat()
-                    : liaison.getEset().getDateAchat();
-
-            licences.add(new Licence(liaison.getIdLiaison(), logiciel, client, cleActivation, dateAchat));
-        }
-
-        LicencesListViewAdapter licencesAdapter = new LicencesListViewAdapter(this, android.R.layout.simple_spinner_item, licences);
-        lvLicences.setAdapter(licencesAdapter);
+        ESETListViewAdapter esetAdapter = new ESETListViewAdapter(this, android.R.layout.simple_spinner_item, esets);
+        lvEset.setAdapter(esetAdapter);
     }
 
-    private final AdapterView.OnItemClickListener elementSectionne = (adapterView, view, i, l) -> {
-        int idLiaison = licences.get(i).getIdLiaison();
+    private final AdapterView.OnItemClickListener windowsSectionne = (adapterView, view, i, l) -> {
+        int idWindows = windows.get(i).getIdWindows();
 
-        Intent iConsult = new Intent(this, AffectationActivity.class);
-        iConsult.putExtra("idLiaison", idLiaison);
+        Intent iConsult = new Intent(this, ClientActivity.class);
+        iConsult.putExtra("idWindows", idWindows);
+        someActivityResultLauncher.launch(iConsult);
+    };
+
+    private final AdapterView.OnItemClickListener esetSectionne = (adapterView, view, i, l) -> {
+        int idEset = esets.get(i).getIdEset();
+
+        Intent iConsult = new Intent(this, ClientActivity.class);
+        iConsult.putExtra("idEset", idEset);
         someActivityResultLauncher.launch(iConsult);
     };
 }

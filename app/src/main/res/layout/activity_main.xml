@@ -6,53 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".IHM.MainActivity">
 
-    <Button
-        android:id="@+id/btNouvelleLicence"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nouvelle licence"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLicences" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnLicences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Licences" />
+
+        <Button
+            android:id="@+id/btnNouvelleLicence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nouvelle licence" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/btnClients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clients" />
+
+        <Button
+            android:id="@+id/btnNouveauClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nouveau client" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/btnAffectations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Affectations" />
+
+        <Button
+            android:id="@+id/btnNouvelleAffectation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nouvelle affectation" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btLicences"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Licences"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btNouveauClient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nouveau client"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btClients" />
-
-    <Button
-        android:id="@+id/btClients"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Clients"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btNouvelleLicence" />
-
-    <Button
-        android:id="@+id/btAffectation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Affectation des licences"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btNouveauClient" />
-
-    <Button
-        android:id="@+id/btQuitter"
+        android:id="@+id/btnQuitter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Quitter"

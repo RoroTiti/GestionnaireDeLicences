@@ -2,7 +2,6 @@ package com.example.gestionnairedelicence.IHM;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import androidx.activity.result.ActivityResultLauncher;
@@ -29,7 +28,7 @@ public class ClientsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clients);
 
-        lvClients = findViewById(R.id.lvClients);
+        lvClients = findViewById(R.id.lvAffectations);
 
         init();
 

@@ -11,21 +11,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gestionnairedelicence.R;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btNouvelleLicence, btNouveauClient, btClients, btConsult, btAffectation, btQuitter;
+    private Button btnLicences, btNouvelleLicence, btNouveauClient, btClients, btConsult, btAffectation, btQuitter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btConsult = findViewById(R.id.btLicences);
-        btClients = findViewById(R.id.btClients);
-        btNouveauClient = findViewById(R.id.btNouveauClient);
-        btNouvelleLicence = findViewById(R.id.btNouvelleLicence);
-        btAffectation = findViewById(R.id.btAffectation);
-        btQuitter = findViewById(R.id.btQuitter);
+        btConsult = findViewById(R.id.btnAffectations);
+        btClients = findViewById(R.id.btnClients);
+        btNouveauClient = findViewById(R.id.btnNouveauClient);
+        btnLicences = findViewById(R.id.btnLicences);
+        btNouvelleLicence = findViewById(R.id.btnNouvelleLicence);
+        btAffectation = findViewById(R.id.btnNouvelleAffectation);
+        btQuitter = findViewById(R.id.btnQuitter);
 
         btConsult.setOnClickListener(bConsultLicences);
+        btnLicences.setOnClickListener(bLicences);
         btNouvelleLicence.setOnClickListener(bNewLicence);
         btClients.setOnClickListener(bClients);
         btNouveauClient.setOnClickListener(bNewClient);
@@ -72,29 +74,34 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private View.OnClickListener quitterListener = view -> quitter();
+    private final View.OnClickListener quitterListener = view -> quitter();
 
-    private View.OnClickListener bConsultLicences = view -> {
-        Intent iConsult = new Intent(this, LicencesActivity.class);
+    private final View.OnClickListener bConsultLicences = view -> {
+        Intent iConsult = new Intent(this, AffectationsActivity.class);
         startActivity(iConsult);
     };
 
-    private View.OnClickListener bNewClient = view -> {
+    private final View.OnClickListener bNewClient = view -> {
         Intent iConsult = new Intent(this, ClientActivity.class);
         startActivity(iConsult);
     };
 
-    private View.OnClickListener bClients = view -> {
+    private final View.OnClickListener bClients = view -> {
         Intent iConsult = new Intent(this, ClientsActivity.class);
         startActivity(iConsult);
     };
 
-    private View.OnClickListener bNewLicence = view -> {
+    private final View.OnClickListener bLicences = view -> {
+        Intent iConsult = new Intent(this, LicencesActivity.class);
+        startActivity(iConsult);
+    };
+
+    private final View.OnClickListener bNewLicence = view -> {
         Intent iConsult = new Intent(this, LicenceActivity.class);
         startActivity(iConsult);
     };
 
-    private View.OnClickListener bAffectation = view -> {
+    private final View.OnClickListener bAffectation = view -> {
         Intent iConsult = new Intent(this, AffectationActivity.class);
         startActivity(iConsult);
     };

@@ -13,10 +13,13 @@
             android:name=".IHM.AffectationActivity"
             android:exported="false" />
         <activity
-            android:name=".IHM.LicencesActivity"
+            android:name=".IHM.AffectationsActivity"
             android:exported="false" />
         <activity
             android:name=".IHM.LicenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IHM.LicencesActivity"
             android:exported="false" />
         <activity
             android:name=".IHM.ClientActivity"

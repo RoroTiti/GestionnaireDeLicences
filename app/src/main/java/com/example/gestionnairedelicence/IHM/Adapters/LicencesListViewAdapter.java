@@ -46,10 +46,10 @@ public class LicencesListViewAdapter extends ArrayAdapter<Licence> {
         Licence user = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.licence_listview_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.affectation_listview_item, parent, false);
         }
 
-        TextView lblCleActivation = convertView.findViewById(R.id.lblClient);
+        TextView lblCleActivation = convertView.findViewById(R.id.lblLicence);
         lblCleActivation.setText(user.getActivationKey());
 
         TextView lblLogiciel = convertView.findViewById(R.id.lblLogiciel);
@@ -58,7 +58,7 @@ public class LicencesListViewAdapter extends ArrayAdapter<Licence> {
         TextView lblDateAchat = convertView.findViewById(R.id.lblDateAchat);
         lblDateAchat.setText(user.getDateAchat());
 
-        TextView lblClient = convertView.findViewById(R.id.lblClient);
+        TextView lblClient = convertView.findViewById(R.id.lblLicence);
         lblClient.setText(user.getClient());
 
         return convertView;
