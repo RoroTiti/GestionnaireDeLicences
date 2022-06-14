@@ -1,5 +1,7 @@
 package com.example.gestionnairedelicence.METIER;
 
+import java.util.Objects;
+
 public class CLIENT {
     private int idClient;
     private String nom;
@@ -84,5 +86,13 @@ public class CLIENT {
     @Override
     public String toString() {
         return prenom + " " + nom;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CLIENT client = (CLIENT) o;
+        return idClient == client.idClient;
     }
 }

@@ -94,4 +94,36 @@ public class LiaisonDAO extends DAO<LIAISON> {
 
         return lesLiaisons;
     }
+
+    public LIAISON read(int idLiaison) {
+        LIAISON liaison = null;
+
+        Cursor cWindows = db.query(TABLE_LIAISON, null, COL_IDLIAISON + "=" + idLiaison, null, null, null, null);
+
+        while (cWindows.moveToNext()) {
+            int idWindows = cWindows.getInt(1);
+            WindowsDAO windowsDAO = new WindowsDAO(context);
+            windowsDAO.open();
+            WINDOWS windows = windowsDAO.read(idWindows);
+            windowsDAO.close();
+
+            int idClient = cWindows.getInt(2);
+            ClientDAO clientDAO = new ClientDAO(context);
+            clientDAO.open();
+            CLIENT client = clientDAO.read(idClient);
+            clientDAO.close();
+
+            int idEset = cWindows.getInt(3);
+            EsetDAO esetDAO = new EsetDAO(context);
+            esetDAO.open();
+            ESET eset = esetDAO.read(idEset);
+            esetDAO.close();
+
+            liaison = new LIAISON(idLiaison, windows, eset, client);
+        }
+
+        cWindows.close();
+
+        return liaison;
+    }
 }

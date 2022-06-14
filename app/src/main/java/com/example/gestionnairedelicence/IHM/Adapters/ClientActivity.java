@@ -1,4 +1,4 @@
-package com.example.gestionnairedelicence.IHM;
+package com.example.gestionnairedelicence.IHM.Adapters;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,4 +1,4 @@
-package com.example.gestionnairedelicence.IHM;
+package com.example.gestionnairedelicence.IHM.Adapters;
 
 public class Licence {
     private int idLiaison;

@@ -1,4 +1,4 @@
-package com.example.gestionnairedelicence.IHM;
+package com.example.gestionnairedelicence.IHM.Adapters;
 
 import android.content.Context;
 import android.graphics.Color;

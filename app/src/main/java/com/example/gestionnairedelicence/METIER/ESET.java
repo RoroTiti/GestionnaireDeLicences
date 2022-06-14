@@ -1,5 +1,7 @@
 package com.example.gestionnairedelicence.METIER;
 
+import androidx.annotation.Nullable;
+
 public class ESET {
     private int idEset;
     private String dateAchat;
@@ -49,12 +51,10 @@ public class ESET {
     }
 
     @Override
-    public String toString() {
-        return "ESET{" +
-                "idEset=" + idEset +
-                ", dateAchat='" + dateAchat + '\'' +
-                ", ActivationKey='" + activationKey + '\'' +
-                ", dateDeFInDeValidite='" + dateDeFInDeValidite + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ESET eset = (ESET) o;
+        return idEset == eset.idEset;
     }
 }

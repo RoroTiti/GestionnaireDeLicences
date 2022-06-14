@@ -38,12 +38,11 @@ public class WINDOWS {
         this.activationKey = activationKey;
     }
 
-    @Override
-    public String toString() {
-        return "WINDOWS{" +
-                "id=" + idWindows +
-                ", dateAchat='" + dateAchat + '\'' +
-                ", ActivationKey='" + activationKey + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WINDOWS windows = (WINDOWS) o;
+        return idWindows == windows.idWindows;
     }
 }
+

@@ -19,7 +19,7 @@
             android:name=".IHM.LicenceActivity"
             android:exported="false" />
         <activity
-            android:name=".IHM.ClientActivity"
+            android:name=".IHM.Adapters.ClientActivity"
             android:exported="false" />
         <activity
             android:name=".IHM.MainActivity"

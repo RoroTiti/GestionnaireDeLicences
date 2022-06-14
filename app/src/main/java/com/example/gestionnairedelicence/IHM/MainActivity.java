@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gestionnairedelicence.IHM.Adapters.ClientActivity;
 import com.example.gestionnairedelicence.R;
 
 public class MainActivity extends AppCompatActivity {
