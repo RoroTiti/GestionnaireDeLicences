@@ -1,7 +1,6 @@
 package com.example.gestionnairedelicence.METIER;
 
 public class ESET {
-
     private int idEset;
     private String dateAchat;
     private String activationKey;

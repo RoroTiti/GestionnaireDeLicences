@@ -11,24 +11,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gestionnairedelicence.R;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btNewLicence;
-    private Button btNewClient;
-    private Button btConsult;
-    private Button btQuitter;
+    private Button btNewLicence, btNewClient, btConsult, btAffectation, btQuitter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btConsult = (Button) findViewById(R.id.btConsult);
-        btNewClient = (Button) findViewById(R.id.BtNewClient);
-        btNewLicence = (Button) findViewById(R.id.BtNewLicence);
-        btQuitter = (Button) findViewById(R.id.btQuitter3);
+        btConsult = findViewById(R.id.btConsult);
+        btNewClient = findViewById(R.id.BtNewClient);
+        btNewLicence = findViewById(R.id.BtNewLicence);
+        btAffectation = findViewById(R.id.btAffectation);
+        btQuitter = findViewById(R.id.btQuitter);
 
         btConsult.setOnClickListener(bConsultLicences);
         btNewLicence.setOnClickListener(bNewLicence);
         btNewClient.setOnClickListener(bNewClient);
+        btAffectation.setOnClickListener(bAffectation);
         btQuitter.setOnClickListener(quitterListener);
     }
 
@@ -85,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
     private View.OnClickListener bNewLicence = view -> {
         Intent iConsult = new Intent(this, LicenceActivity.class);
+        startActivity(iConsult);
+    };
+
+    private View.OnClickListener bAffectation = view -> {
+        Intent iConsult = new Intent(this, AffectationActivity.class);
         startActivity(iConsult);
     };
 }

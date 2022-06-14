@@ -1,25 +1,25 @@
 package com.example.gestionnairedelicence.METIER;
 
 public class WINDOWS {
-    private int id;
+    private int idWindows;
     private String dateAchat;
     private String activationKey;
 
 
     public WINDOWS(int id, String dateAchat, String ActivationKey) {
-        this.id = id;
+        this.idWindows = id;
         this.dateAchat = dateAchat;
         this.activationKey = ActivationKey;
     }
 
     public WINDOWS() {
-        this.id = 0;
+        this.idWindows = 0;
         this.dateAchat = " ";
         this.activationKey = " ";
     }
 
-    public int getId() {
-        return id;
+    public int getIdWindows() {
+        return idWindows;
     }
 
     public String getDateAchat() {
@@ -41,7 +41,7 @@ public class WINDOWS {
     @Override
     public String toString() {
         return "WINDOWS{" +
-                "id=" + id +
+                "id=" + idWindows +
                 ", dateAchat='" + dateAchat + '\'' +
                 ", ActivationKey='" + activationKey + '\'' +
                 '}';

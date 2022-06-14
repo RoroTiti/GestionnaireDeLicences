@@ -10,9 +10,9 @@ import com.example.gestionnairedelicence.METIER.CLIENT;
 import com.example.gestionnairedelicence.METIER.VILLE;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ClientDAO extends DAO<CLIENT> {
+    private final Context context;
     private static final String TABLE_CLIENT = "client";
     private static final String COL_IDCLIENT = "idClient";
     private static final String COL_NOM = "nom";
@@ -22,10 +22,11 @@ public class ClientDAO extends DAO<CLIENT> {
     private static final String COL_MAIL = "mail";
     private static final String COL_IDVILLE = "idville";
 
-    private SQLite sqLite;
+    private final SQLite sqLite;
     private SQLiteDatabase db;
 
     public ClientDAO(Context context) {
+        this.context = context;
         sqLite = new SQLite(context);
     }
 
@@ -60,53 +61,68 @@ public class ClientDAO extends DAO<CLIENT> {
         valeurSQL.put(COL_TEL, unClient.getTel());
         valeurSQL.put(COL_MAIL, unClient.getMail());
         valeurSQL.put(COL_IDCLIENT, unClient.getVille().getIdVille());
-        db.update(TABLE_CLIENT, valeurSQL, COL_IDCLIENT + "=" + unClient.getId(), null);
+        db.update(TABLE_CLIENT, valeurSQL, COL_IDCLIENT + "=" + unClient.getIdClient(), null);
     }
 
     @Override
     public void delete(CLIENT unClient) {
-        db.delete(TABLE_CLIENT, COL_IDCLIENT + "=" + unClient.getId(), null);
+        db.delete(TABLE_CLIENT, COL_IDCLIENT + "=" + unClient.getIdClient(), null);
     }
 
     @Override
-    public List<CLIENT> read() {
-        return null;
-    }
-
-    public List<CLIENT> read(Context context) {
-        List<CLIENT> lesClients;
-        Cursor cClient;
-        CLIENT unClient;
-        int idClient;
-        String nom;
-        String prenom;
-        String adresse;
-        String tel;
-        String mail;
-        int idVille;
-        VILLE uneVille;
+    public ArrayList<CLIENT> read() {
         VilleDAO uneVilleDAO;
 
-        lesClients = new ArrayList<CLIENT>();
-        cClient = db.query(TABLE_CLIENT, null, null, null, null, null, COL_NOM);
-        cClient.moveToFirst();
-        while (!cClient.isAfterLast()) {
-            idClient = cClient.getInt(0);
-            nom = cClient.getString(1);
-            prenom = cClient.getString(2);
-            adresse = cClient.getString(3);
-            tel = cClient.getString(4);
-            mail = cClient.getString(5);
-            idVille = cClient.getInt(6);
+        ArrayList<CLIENT> lesClients = new ArrayList<>();
+        Cursor cClient = db.query(TABLE_CLIENT, null, null, null, null, null, COL_NOM);
+
+        while (cClient.moveToNext()) {
+            int idClient = cClient.getInt(0);
+            String nom = cClient.getString(1);
+            String prenom = cClient.getString(2);
+            String adresse = cClient.getString(3);
+            String tel = cClient.getString(4);
+            String mail = cClient.getString(5);
+
+            int idVille = cClient.getInt(6);
             uneVilleDAO = new VilleDAO(context);
             uneVilleDAO.open();
-            uneVille = uneVilleDAO.read(idVille);
-            unClient = new CLIENT(idClient, nom, prenom, adresse, tel, mail, uneVille);
+            VILLE uneVille = uneVilleDAO.read(idVille);
+            uneVilleDAO.close();
+
+            CLIENT unClient = new CLIENT(idClient, nom, prenom, adresse, tel, mail, uneVille);
+
             lesClients.add(unClient);
-            cClient.moveToNext();
         }
+
         cClient.close();
 
         return lesClients;
+    }
+
+    public CLIENT read(int idClient) {
+        CLIENT client = null;
+
+        Cursor cursor = db.query(TABLE_CLIENT, null, COL_IDCLIENT + "=" + idClient, null, null, null, COL_NOM);
+
+        while (cursor.moveToNext()) {
+            String nom = cursor.getString(1);
+            String prenom = cursor.getString(2);
+            String adresse = cursor.getString(3);
+            String tel = cursor.getString(4);
+            String mail = cursor.getString(5);
+
+            int idVille = cursor.getInt(6);
+            VilleDAO uneVilleDAO = new VilleDAO(context);
+            uneVilleDAO.open();
+            VILLE uneVille = uneVilleDAO.read(idVille);
+            uneVilleDAO.close();
+
+            client = new CLIENT(idClient, nom, prenom, adresse, tel, mail, uneVille);
+        }
+
+        cursor.close();
+
+        return client;
     }
 }

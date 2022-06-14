@@ -61,30 +61,40 @@ public class EsetDAO extends DAO<ESET> {
     }
 
     @Override
-    public List<ESET> read() {
-        return null;
-    }
+    public ArrayList<ESET> read() {
+        ArrayList<ESET> lesLicence = new ArrayList<>();
 
-    public List<ESET> read(Context context) {
-        List<ESET> lesLicence;
-        Cursor cEset;
-        ESET uneLicence;
-        int idEset;
-        String dateAchat;
-        String activationKey;
-        String dateDeFinDeValidite;
-        lesLicence = new ArrayList<ESET>();
-        cEset = db.query(TABLE_ESET, null, null, null, null, null, null);
-        cEset.moveToFirst();
-        while (!cEset.isAfterLast()) {
-            idEset = cEset.getInt(0);
-            dateAchat = cEset.getString(1);
-            activationKey = cEset.getString(2);
-            dateDeFinDeValidite = cEset.getString(3);
-            uneLicence = new ESET(idEset, dateAchat, activationKey, dateDeFinDeValidite);
+        Cursor cursor = db.query(TABLE_ESET, null, null, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+            int idEset = cursor.getInt(0);
+            String dateAchat = cursor.getString(1);
+            String activationKey = cursor.getString(2);
+            String dateFinValidite = cursor.getString(3);
+
+            ESET uneLicence = new ESET(idEset, dateAchat, activationKey, dateFinValidite);
             lesLicence.add(uneLicence);
         }
-        cEset.close();
+
+        cursor.close();
+
         return lesLicence;
+    }
+
+    public ESET read(int idEset) {
+        ESET licence = null;
+
+        Cursor cursor = db.query(TABLE_ESET, null, COL_IDESET + "=" + idEset, null, null, null, null);
+
+        if (cursor.moveToNext()) {
+            String dateAchat = cursor.getString(1);
+            String activationKey = cursor.getString(2);
+            String dateFinValidite = cursor.getString(3);
+            licence = new ESET(idEset, dateAchat, activationKey, dateFinValidite);
+        }
+
+        cursor.close();
+
+        return licence;
     }
 }

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="GestionDeLicence" uuid="8ecce9d1-c34d-4d8f-afe3-d7bfe2e71c6c">
+    <data-source source="LOCAL" name="Android SQLite" uuid="76cd38bb-0f46-47c8-9781-7922b42b895c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Library/Caches/JetBrains/IntelliJIdea2022.2/android/databases/EMULATOR_Pixel_5_API_22/com.example.gestionnairedelicence/internal/GestionDeLicence</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="GestionDeLicence" uuid="116fa91a-8637-42bd-a34b-b343c5414bdf">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$USER_HOME$/Library/Caches/JetBrains/IntelliJIdea2022.2/device-explorer/Pixel_5_API_22 [emulator-5554]/data/data/com.example.gestionnairedelicence/databases/GestionDeLicence</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Library/Caches/JetBrains/IntelliJIdea2022.2/device-explorer/emulator-5554/data/data/com.example.gestionnairedelicence/databases/GestionDeLicence</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

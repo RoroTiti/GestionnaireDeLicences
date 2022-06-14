@@ -34,7 +34,17 @@
         app:layout_constraintTop_toBottomOf="@+id/BtNewLicence" />
 
     <Button
-        android:id="@+id/btQuitter3"
+        android:id="@+id/btAffectation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Affectation des licences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtNewClient" />
+
+    <Button
+        android:id="@+id/btQuitter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Quitter"

@@ -1,7 +1,7 @@
 package com.example.gestionnairedelicence.METIER;
 
 public class CLIENT {
-    private int id;
+    private int idClient;
     private String nom;
     private String prenom;
     private String adresse;
@@ -10,7 +10,7 @@ public class CLIENT {
     private VILLE ville;
 
     public CLIENT(int id, String nom, String prenom, String adresse, String tel, String mail, VILLE ville) {
-        this.id = id;
+        this.idClient = id;
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
@@ -20,7 +20,7 @@ public class CLIENT {
     }
 
     public CLIENT() {
-        this.id = 0;
+        this.idClient = 0;
         this.nom = "";
         this.prenom = "";
         this.adresse = "";
@@ -28,8 +28,8 @@ public class CLIENT {
         this.mail = " ";
     }
 
-    public int getId() {
-        return id;
+    public int getIdClient() {
+        return idClient;
     }
 
 
@@ -83,14 +83,6 @@ public class CLIENT {
 
     @Override
     public String toString() {
-        return "CLIENT{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", tel='" + tel + '\'' +
-                ", mail='" + mail + '\'' +
-                ", ville=" + ville +
-                '}';
+        return prenom + " " + nom;
     }
 }

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestionnairedelicence">
         <activity
+            android:name=".IHM.AffectationActivity"
+            android:exported="false" />
+        <activity
             android:name=".IHM.ConsultActivity"
             android:exported="false" />
         <activity
