@@ -4,20 +4,20 @@ public class ESET {
 
     private int idEset;
     private String dateAchat;
-    private String ActivationKey;
+    private String activationKey;
     private String dateDeFInDeValidite;
 
     public ESET(int idEset, String dateAchat, String ActivationKey, String dateDeFInDeValidite) {
         this.idEset = idEset;
         this.dateAchat = dateAchat;
-        this.ActivationKey = ActivationKey;
+        this.activationKey = ActivationKey;
         this.dateDeFInDeValidite = dateDeFInDeValidite;
     }
 
     public ESET() {
         this.idEset = 0;
         this.dateAchat = " ";
-        this.ActivationKey = " ";
+        this.activationKey = " ";
         this.dateDeFInDeValidite = " ";
     }
 
@@ -34,18 +34,18 @@ public class ESET {
     }
 
     public String getActivationKey() {
-        return ActivationKey;
+        return activationKey;
     }
 
     public void setActivationKey(String activationKey) {
-        ActivationKey = activationKey;
+        this.activationKey = activationKey;
     }
 
     public String getDateDeFInDeValidite() {
         return dateDeFInDeValidite;
     }
 
-    public void setDateDeFInDeValidite(String dateDeFInDeValidite) {
+    public void setDateFinValidite(String dateDeFInDeValidite) {
         this.dateDeFInDeValidite = dateDeFInDeValidite;
     }
 
@@ -54,7 +54,7 @@ public class ESET {
         return "ESET{" +
                 "idEset=" + idEset +
                 ", dateAchat='" + dateAchat + '\'' +
-                ", ActivationKey='" + ActivationKey + '\'' +
+                ", ActivationKey='" + activationKey + '\'' +
                 ", dateDeFInDeValidite='" + dateDeFInDeValidite + '\'' +
                 '}';
     }

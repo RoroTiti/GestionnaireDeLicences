@@ -1,6 +1,5 @@
 package com.example.gestionnairedelicence.IHM;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,19 +20,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
+
+        btConsult = (Button) findViewById(R.id.btConsult);
+        btNewClient = (Button) findViewById(R.id.BtNewClient);
+        btNewLicence = (Button) findViewById(R.id.BtNewLicence);
+        btQuitter = (Button) findViewById(R.id.btQuitter3);
 
         btConsult.setOnClickListener(bConsultLicences);
         btNewLicence.setOnClickListener(bNewLicence);
         btNewClient.setOnClickListener(bNewClient);
         btQuitter.setOnClickListener(quitterListener);
-    }
-
-    private void init() {
-        btConsult = (Button) findViewById(R.id.btConsult);
-        btNewClient = (Button) findViewById(R.id.BtNewClient);
-        btNewLicence = (Button) findViewById(R.id.BtNewLicence);
-        btQuitter = (Button) findViewById(R.id.btQuitter3);
     }
 
     public Button getBtNewLicence() {

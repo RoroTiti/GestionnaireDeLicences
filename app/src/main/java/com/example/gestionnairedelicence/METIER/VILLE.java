@@ -21,7 +21,6 @@ public class VILLE {
         return idVille;
     }
 
-
     public String getLibelle() {
         return libelle;
     }

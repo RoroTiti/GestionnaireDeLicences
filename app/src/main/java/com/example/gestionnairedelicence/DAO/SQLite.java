@@ -18,10 +18,10 @@ public class SQLite extends SQLiteOpenHelper {
         try {
             db.execSQL("CREATE TABLE VILLE (" +
                     "idVille integer primary key autoincrement," +
-                    "libelle varchar(50)," +
-                    "cp varchar(5))");
-            db.execSQL("insert into VILLE(libelle, cp ) values ('Assais-Les-Jumeaux', '79600')");
-            db.execSQL("insert into VILLE(libelle, cp) values ('Loudun','86200')");
+                    "libelle varchar(255)," +
+                    "cp varchar(255))");
+//            db.execSQL("insert into VILLE(libelle, cp ) values ('Assais-Les-Jumeaux', '79600')");
+//            db.execSQL("insert into VILLE(libelle, cp) values ('Loudun','86200')");
             Log.v("SQLite ok", "Table VILLE est créée");
         } catch (Exception e) {
             Log.v("Erreur c table VILLE", e.toString());
@@ -31,14 +31,13 @@ public class SQLite extends SQLiteOpenHelper {
         try {
             db.execSQL("CREATE TABLE CLIENT (" +
                     "idClient integer primary key autoincrement," +
-                    "nom VARCHAR(50)," +
-                    "prenom VARCHAR(50)," +
-                    "adresse VARCHAR (100)," +
-                    "tel VARCHAR(10)," +
-                    "mail VARCHAR(50) ," +
-                    "idille  integer , foreign key (idVille) references VILLE (idVille))");
-            db.execSQL("insert into CLIENT (nom, prenom, adresse, tel , mail) VALUES ('GIRARD','Florent', '3 Bis la patte d oie', '0641172984', 'service-technique@girard-florent.fr', 1)");
-            db.execSQL("insert into CLIENT (nom, prenom, adresse, tel, mail) VALUES ('ROUILLON', 'Lea', '12 avenue des champs élysée', '0612345678', 'roullonlea@gmail.com',2)");
+                    "nom varchar(255)," +
+                    "prenom varchar(255)," +
+                    "adresse varchar (255)," +
+                    "tel varchar(2555)," +
+                    "mail varchar(255)," +
+                    "idVille integer," +
+                    "foreign key (idVille) references VILLE (idVille))");
             Log.v("SQLite ok ", "Table CLIENT est créée");
         } catch (Exception e) {
             Log.v("Erreur c table CLIENT", e.toString());
@@ -48,10 +47,8 @@ public class SQLite extends SQLiteOpenHelper {
         try {
             db.execSQL("CREATE TABLE WINDOWS(" +
                     "idWindows integer primary key autoincrement," +
-                    "dateAchat VARCHAR(10)," +
-                    "activationKey VARCHAR(30))");
-            db.execSQL("insert into WINDOWS(dateAchat, activationKey) VALUES ('11/10/2021',' W269N-WFGWX-YVC9B-4J6C9-T83GX' )");
-            db.execSQL("insert into WINDOWS(dateAchat, activationKey) VALUES ('11/10/2021',' W269N-WFGWX-YVC9B-4J6C9-T83GX')");
+                    "dateAchat varchar(255)," +
+                    "activationKey varchar(255))");
         } catch (Exception e) {
             Log.v("Erreur c table WINDOWS", e.toString());
         }
@@ -59,12 +56,10 @@ public class SQLite extends SQLiteOpenHelper {
         //Creation Table ESET //
         try {
             db.execSQL("CREATE TABLE ESET(" +
-                    "idESET integer primary key autoincrement," +
-                    "dateAchat VARCHAR(10)," +
-                    "activationKey VARCHAR(30)," +
-                    "dateDeFinDeValidite VARCHAR(10))");
-            db.execSQL("insert into ESET(dateAchat, activationKey, dateDeFinDeValidite) VALUES ('11/10/2021',' W269N-WFGWX-YVC9B-4J6C9-T83GX', '11/10/2022')");
-            db.execSQL("insert into ESET(dateAchat, activationKey, dateDeFinDeValidite) VALUES ('11/10/2021',' W269N-WFGWX-YVC9B-4J6C9-T83GX', '11/10/2022')");
+                    "idEset integer primary key autoincrement," +
+                    "dateAchat varchar(255)," +
+                    "activationKey varchar(255)," +
+                    "dateDeFinDeValidite varchar(255))");
         } catch (Exception e) {
             Log.v("Erreur c table ESET", e.toString());
         }
@@ -72,12 +67,13 @@ public class SQLite extends SQLiteOpenHelper {
         //Creation Table LIAISON
         try {
             db.execSQL("CREATE TABLE LIAISON(" +
-                    "idIndows integer primary key," +
-                    "idClient integer primary key ," +
-                    "idEset integer primary key," +
+                    "idLiaison integer primary key autoincrement," +
+                    "idWindows integer," +
+                    "idClient integer," +
+                    "idEset integer," +
                     "foreign key (idClient) references CLIENT (idClient)," +
                     "foreign key (idWindows) references WINDOWS (idWindows)," +
-                    "foreign key (idEset) references ESET(idEset))");
+                    "foreign key (idEset) references ESET (idEset))");
         } catch (Exception e) {
             Log.v("Erreur ct LIAISON", e.toString());
         }

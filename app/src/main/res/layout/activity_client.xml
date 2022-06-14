@@ -65,7 +65,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btvalider"
+        android:id="@+id/btCreerClient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Valider"

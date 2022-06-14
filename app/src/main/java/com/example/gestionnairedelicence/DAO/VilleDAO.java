@@ -24,7 +24,6 @@ public class VilleDAO extends DAO<VILLE> {
         sqLite = new SQLite(context);
     }
 
-
     public void open() {
         db = sqLite.getWritableDatabase();
     }
@@ -69,6 +68,7 @@ public class VilleDAO extends DAO<VILLE> {
         lesVilles = new ArrayList<>();
         cVille = db.query(TABLE_VILLE, null, null, null, null, null, COL_LIBELLE);
         cVille.moveToFirst();
+
         while (!cVille.isAfterLast()) {
             idVille = cVille.getInt(0);
             libelle = cVille.getString(1);
@@ -77,19 +77,21 @@ public class VilleDAO extends DAO<VILLE> {
             lesVilles.add(uneVille);
             cVille.moveToNext();
         }
+
         cVille.close();
+
         return (lesVilles);
     }
 
     public VILLE read(int id) {
         Cursor cVille;
         VILLE uneVille;
-        int idVille;
         String libelle;
         String cp;
 
         cVille = db.query(TABLE_VILLE, null, COL_IDVILLE + "=" + id, null, null, null, null);
-        if (!cVille.isAfterLast()) {
+
+        if (cVille.moveToNext()) {
             id = cVille.getInt(0);
             libelle = cVille.getString(1);
             cp = cVille.getString(2);
@@ -97,6 +99,7 @@ public class VilleDAO extends DAO<VILLE> {
         } else {
             uneVille = null;
         }
+
         cVille.close();
         return uneVille;
     }

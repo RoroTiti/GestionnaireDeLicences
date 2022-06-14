@@ -20,14 +20,14 @@
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/etWindows"
+                android:id="@+id/rbWindows"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Windows" />
 
             <RadioButton
-                android:id="@+id/etEset"
+                android:id="@+id/rbEset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ESET" />
@@ -49,44 +49,13 @@
             android:inputType="date" />
 
         <EditText
-            android:id="@+id/etESETDateFinValidite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date de fin de validité"
-            android:inputType="textPersonName" />
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/etESETDateFinValidite"
+            android:hint="Date de fin de validité" />
     </LinearLayout>
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="660dp"-->
-    <!--        android:layout_height="724dp"-->
-    <!--        android:layout_marginStart="1dp"-->
-    <!--        android:orientation="vertical"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toEndOf="@+id/linearLayout"-->
-    <!--        app:layout_constraintTop_toTopOf="parent">-->
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/tvWindows"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="82dp"-->
-    <!--            android:text="WINDOWS" />-->
-
-    <!--        <EditText-->
-    <!--            android:id="@+id/etWAtcivationKey"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="94dp"-->
-    <!--            android:ems="10"-->
-    <!--            android:inputType="textPersonName"-->
-    <!--            android:text="Clé d'activation" />-->
-
-    <!--        <EditText-->
-    <!--            android:id="@+id/etWDateAchat"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="92dp"-->
-    <!--            android:ems="10"-->
-    <!--            android:inputType="textPersonName"-->
-    <!--            android:text="Date de l'achat" />-->
-    <!--    </LinearLayout>-->
 
     <Button
         android:id="@+id/btLicenceValider"

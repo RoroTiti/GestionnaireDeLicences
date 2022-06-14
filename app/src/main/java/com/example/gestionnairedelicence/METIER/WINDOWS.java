@@ -3,19 +3,19 @@ package com.example.gestionnairedelicence.METIER;
 public class WINDOWS {
     private int id;
     private String dateAchat;
-    private String ActivationKey;
+    private String activationKey;
 
 
     public WINDOWS(int id, String dateAchat, String ActivationKey) {
         this.id = id;
         this.dateAchat = dateAchat;
-        this.ActivationKey = ActivationKey;
+        this.activationKey = ActivationKey;
     }
 
     public WINDOWS() {
         this.id = 0;
         this.dateAchat = " ";
-        this.ActivationKey = " ";
+        this.activationKey = " ";
     }
 
     public int getId() {
@@ -31,11 +31,11 @@ public class WINDOWS {
     }
 
     public String getActivationKey() {
-        return ActivationKey;
+        return activationKey;
     }
 
     public void setActivationKey(String activationKey) {
-        ActivationKey = activationKey;
+        this.activationKey = activationKey;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class WINDOWS {
         return "WINDOWS{" +
                 "id=" + id +
                 ", dateAchat='" + dateAchat + '\'' +
-                ", ActivationKey='" + ActivationKey + '\'' +
+                ", ActivationKey='" + activationKey + '\'' +
                 '}';
     }
 }
