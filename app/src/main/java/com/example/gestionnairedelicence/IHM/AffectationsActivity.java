@@ -60,7 +60,7 @@ public class AffectationsActivity extends AppCompatActivity {
                     ? liaison.getWindows().getDateAchat()
                     : liaison.getEset().getDateAchat();
 
-            licences.add(new Licence(liaison.getIdLiaison(), logiciel, client, cleActivation, dateAchat));
+            licences.add(new Licence(liaison.getIdLiaison(), logiciel, cleActivation, dateAchat, client));
         }
 
         LicencesListViewAdapter licencesAdapter = new LicencesListViewAdapter(this, android.R.layout.simple_spinner_item, licences);

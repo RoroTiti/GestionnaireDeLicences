@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class LiaisonDAO extends DAO<LIAISON> {
     private final Context context;
-    private static final String TABLE_LIAISON = "liaison";
+    static final String TABLE_LIAISON = "liaison";
     private static final String COL_IDLIAISON = "idLiaison";
     private static final String COL_IDWINDOWS = "idWindows";
     private static final String COL_IDESET = "idEset";
@@ -56,7 +56,7 @@ public class LiaisonDAO extends DAO<LIAISON> {
 
     @Override
     public void delete(LIAISON uneLiaison) {
-        db.delete(TABLE_LIAISON, COL_IDWINDOWS + "=" + uneLiaison.getIdLiaison(), null);
+        db.delete(TABLE_LIAISON, COL_IDLIAISON + "=" + uneLiaison.getIdLiaison(), null);
     }
 
     @Override

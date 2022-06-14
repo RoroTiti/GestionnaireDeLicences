@@ -13,6 +13,8 @@ import com.example.gestionnairedelicence.METIER.WINDOWS;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.gestionnairedelicence.DAO.LiaisonDAO.TABLE_LIAISON;
+
 public class EsetDAO extends DAO<ESET> {
     private static final String TABLE_ESET = "eset";
     private static final String COL_IDESET = "idEset";
@@ -56,6 +58,7 @@ public class EsetDAO extends DAO<ESET> {
 
     @Override
     public void delete(ESET uneLicence) {
+        db.delete(TABLE_LIAISON, COL_IDESET + "=" + uneLicence.getIdEset(), null);
         db.delete(TABLE_ESET, COL_IDESET + "=" + uneLicence.getIdEset(), null);
     }
 

@@ -62,7 +62,7 @@ public class LicencesActivity extends AppCompatActivity {
     private final AdapterView.OnItemClickListener windowsSectionne = (adapterView, view, i, l) -> {
         int idWindows = windows.get(i).getIdWindows();
 
-        Intent iConsult = new Intent(this, ClientActivity.class);
+        Intent iConsult = new Intent(this, LicenceActivity.class);
         iConsult.putExtra("idWindows", idWindows);
         someActivityResultLauncher.launch(iConsult);
     };
@@ -70,7 +70,7 @@ public class LicencesActivity extends AppCompatActivity {
     private final AdapterView.OnItemClickListener esetSectionne = (adapterView, view, i, l) -> {
         int idEset = esets.get(i).getIdEset();
 
-        Intent iConsult = new Intent(this, ClientActivity.class);
+        Intent iConsult = new Intent(this, LicenceActivity.class);
         iConsult.putExtra("idEset", idEset);
         someActivityResultLauncher.launch(iConsult);
     };

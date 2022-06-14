@@ -49,7 +49,7 @@ public class WindowsListViewAdapter extends ArrayAdapter<WINDOWS> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.licence_listview_item, parent, false);
         }
 
-        TextView lblLicence = convertView.findViewById(R.id.lblLicence);
+        TextView lblLicence = convertView.findViewById(R.id.lblClient);
         lblLicence.setText(client.getActivationKey());
 
         return convertView;

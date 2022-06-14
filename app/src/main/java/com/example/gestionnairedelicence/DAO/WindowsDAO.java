@@ -10,6 +10,8 @@ import com.example.gestionnairedelicence.METIER.WINDOWS;
 
 import java.util.ArrayList;
 
+import static com.example.gestionnairedelicence.DAO.LiaisonDAO.TABLE_LIAISON;
+
 public class WindowsDAO extends DAO<WINDOWS> {
     private static final String TABLE_WINDOWS = "windows";
     private static final String COL_IDWINDOWS = "idWindows";
@@ -50,6 +52,7 @@ public class WindowsDAO extends DAO<WINDOWS> {
 
     @Override
     public void delete(WINDOWS uneLicence) {
+        db.delete(TABLE_LIAISON, COL_IDWINDOWS + "=" + uneLicence.getIdWindows(), null);
         db.delete(TABLE_WINDOWS, COL_IDWINDOWS + "=" + uneLicence.getIdWindows(), null);
     }
 

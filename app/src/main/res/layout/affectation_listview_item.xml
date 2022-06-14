@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/lblLicence"
+            android:id="@+id/lblCleActivation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -33,7 +33,7 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/lblLicence"
+            android:id="@+id/lblNomClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />

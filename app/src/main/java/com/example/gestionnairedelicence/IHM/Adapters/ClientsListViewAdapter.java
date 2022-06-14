@@ -49,7 +49,7 @@ public class ClientsListViewAdapter extends ArrayAdapter<CLIENT> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.client_listview_item, parent, false);
         }
 
-        TextView lblClient = convertView.findViewById(R.id.lblLicence);
+        TextView lblClient = convertView.findViewById(R.id.lblClient);
         lblClient.setText(client.toString());
 
         return convertView;

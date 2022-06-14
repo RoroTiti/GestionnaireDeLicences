@@ -11,6 +11,8 @@ import com.example.gestionnairedelicence.METIER.VILLE;
 
 import java.util.ArrayList;
 
+import static com.example.gestionnairedelicence.DAO.LiaisonDAO.TABLE_LIAISON;
+
 public class ClientDAO extends DAO<CLIENT> {
     private final Context context;
     private static final String TABLE_CLIENT = "client";
@@ -65,6 +67,7 @@ public class ClientDAO extends DAO<CLIENT> {
 
     @Override
     public void delete(CLIENT unClient) {
+        db.delete(TABLE_LIAISON, COL_IDCLIENT + "=" + unClient.getIdClient(), null);
         db.delete(TABLE_CLIENT, COL_IDCLIENT + "=" + unClient.getIdClient(), null);
     }
 

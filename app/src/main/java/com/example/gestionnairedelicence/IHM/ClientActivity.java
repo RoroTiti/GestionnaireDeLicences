@@ -16,6 +16,7 @@ import com.example.gestionnairedelicence.R;
 
 public class ClientActivity extends AppCompatActivity {
     EditText etNom, etPrenom, etAdresse, etTelephone, etMail, etCodePostal, etVille;
+    Button btValider, btnSupprimer;
     CLIENT clientSelectionne;
 
     @Override
@@ -33,6 +34,8 @@ public class ClientActivity extends AppCompatActivity {
         etMail = findViewById(R.id.etMail);
         etCodePostal = findViewById(R.id.etCodePostal);
         etVille = findViewById(R.id.etVille);
+        btValider = findViewById(R.id.btValider);
+        btnSupprimer = findViewById(R.id.btnSupprimer);
 
         if (idClient != 0) {
             ClientDAO clientDAO = new ClientDAO(this);
@@ -42,12 +45,10 @@ public class ClientActivity extends AppCompatActivity {
             clientDAO.close();
         }
 
-        Button btValider = findViewById(R.id.btValider);
         btValider.setOnClickListener(btValiderClic);
+        btnSupprimer.setOnClickListener(btnSupprimerClic);
 
         if (idClient != 0) {
-            btValider.setText("Modifier");
-
             etNom.setText(clientSelectionne.getNom());
             etPrenom.setText(clientSelectionne.getPrenom());
             etAdresse.setText(clientSelectionne.getAdresse());
@@ -55,8 +56,20 @@ public class ClientActivity extends AppCompatActivity {
             etTelephone.setText(clientSelectionne.getTel());
             etCodePostal.setText(clientSelectionne.getVille().getCp());
             etVille.setText(clientSelectionne.getVille().getLibelle());
+        } else {
+            btnSupprimer.setVisibility(View.INVISIBLE);
         }
     }
+
+    private final View.OnClickListener btnSupprimerClic = view -> {
+        ClientDAO clientDAO = new ClientDAO(this);
+        clientDAO.open();
+
+        clientDAO.delete(clientSelectionne);
+        clientDAO.close();
+
+        finish();
+    };
 
     private final View.OnClickListener btValiderClic = view -> {
         VilleDAO villeDAO = new VilleDAO(this);
@@ -100,6 +113,6 @@ public class ClientActivity extends AppCompatActivity {
 
         clientDAO.close();
 
-        this.finish();
+        finish();
     };
 }

@@ -26,9 +26,8 @@ import java.util.ArrayList;
 public class AffectationActivity extends AppCompatActivity {
     private Spinner spLicences, spClients;
     RadioButton rbEset, rbWindows;
-    Button btValider;
+    Button btValider, btnSupprimer;
     LIAISON liaisonSelectionnee;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +50,13 @@ public class AffectationActivity extends AppCompatActivity {
         spLicences = findViewById(R.id.spLicences);
         spClients = findViewById(R.id.spClients);
         btValider = findViewById(R.id.btValider);
+        btnSupprimer = findViewById(R.id.btnSupprimer);
 
         rbWindows.setOnCheckedChangeListener(cocheChange);
         rbEset.setOnCheckedChangeListener(cocheChange);
 
         btValider.setOnClickListener(btValiderAffectationClic);
+        btnSupprimer.setOnClickListener(btnSupprimerClic);
 
         ClientDAO clientDAO = new ClientDAO(this);
         clientDAO.open();
@@ -67,8 +68,6 @@ public class AffectationActivity extends AppCompatActivity {
         spClients.setAdapter(adapter); // Set the custom adapter to the spinner
 
         if (idLiaison != 0) {
-            btValider.setText("Modifier");
-
             if (liaisonSelectionnee.getWindows() != null) {
                 rbWindows.setChecked(true);
             } else {
@@ -79,6 +78,7 @@ public class AffectationActivity extends AppCompatActivity {
             spClients.setSelection(index);
         } else {
             rbWindows.setChecked(true);
+            btnSupprimer.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -112,6 +112,16 @@ public class AffectationActivity extends AppCompatActivity {
                 spLicences.setSelection(index);
             }
         }
+    };
+
+    private final View.OnClickListener btnSupprimerClic = view -> {
+        LiaisonDAO liaisonDAO = new LiaisonDAO(this);
+        liaisonDAO.open();
+
+        liaisonDAO.delete(liaisonSelectionnee);
+        liaisonDAO.close();
+
+        finish();
     };
 
     private final View.OnClickListener btValiderAffectationClic = view -> {
@@ -154,6 +164,6 @@ public class AffectationActivity extends AppCompatActivity {
 
         liaisonDAO.close();
 
-        this.finish();
+        finish();
     };
 }

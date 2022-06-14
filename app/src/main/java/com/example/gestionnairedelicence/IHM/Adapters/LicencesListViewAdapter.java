@@ -43,23 +43,23 @@ public class LicencesListViewAdapter extends ArrayAdapter<Licence> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Licence user = getItem(position);
+        Licence licence = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.affectation_listview_item, parent, false);
         }
 
-        TextView lblCleActivation = convertView.findViewById(R.id.lblLicence);
-        lblCleActivation.setText(user.getActivationKey());
+        TextView lblCleActivation = convertView.findViewById(R.id.lblCleActivation);
+        lblCleActivation.setText(licence.getActivationKey());
 
         TextView lblLogiciel = convertView.findViewById(R.id.lblLogiciel);
-        lblLogiciel.setText(user.getLogiciel());
+        lblLogiciel.setText(licence.getLogiciel());
 
         TextView lblDateAchat = convertView.findViewById(R.id.lblDateAchat);
-        lblDateAchat.setText(user.getDateAchat());
+        lblDateAchat.setText(licence.getDateAchat());
 
-        TextView lblClient = convertView.findViewById(R.id.lblLicence);
-        lblClient.setText(user.getClient());
+        TextView lblNomClient = convertView.findViewById(R.id.lblNomClient);
+        lblNomClient.setText(licence.getClient());
 
         return convertView;
     }

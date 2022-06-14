@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.example.gestionnairedelicence.METIER.ESET;
-import com.example.gestionnairedelicence.METIER.WINDOWS;
 import com.example.gestionnairedelicence.R;
 
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class ESETListViewAdapter extends ArrayAdapter<ESET> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.licence_listview_item, parent, false);
         }
 
-        TextView lblLicence = convertView.findViewById(R.id.lblLicence);
+        TextView lblLicence = convertView.findViewById(R.id.lblClient);
         lblLicence.setText(client.getActivationKey());
 
         return convertView;
