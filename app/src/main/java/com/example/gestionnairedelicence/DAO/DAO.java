@@ -10,4 +10,5 @@ public abstract class DAO<T> {
     public abstract void delete(T unObjet);
 
     public abstract List<T> read();
+    public abstract T read(int i);
 }

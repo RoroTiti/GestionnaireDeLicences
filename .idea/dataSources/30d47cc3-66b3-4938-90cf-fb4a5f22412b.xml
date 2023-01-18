@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Android SQLite">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.41">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.45">
     <root id="1">
       <ServerVersion>3.36.0</ServerVersion>
     </root>
@@ -1298,31 +1298,31 @@
     </table>
     <column id="481" parent="473" name="idClient">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="482" parent="473" name="nom">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="483" parent="473" name="prenom">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="484" parent="473" name="adresse">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="485" parent="473" name="tel">
-      <DataType>varchar(2555)|0s</DataType>
+      <DasType>varchar(2555)|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="486" parent="473" name="mail">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
     </column>
     <column id="487" parent="473" name="idVille">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>7</Position>
     </column>
     <foreign-key id="488" parent="473">
@@ -1336,19 +1336,19 @@
     </key>
     <column id="490" parent="474" name="idEset">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="491" parent="474" name="dateAchat">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="492" parent="474" name="activationKey">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="493" parent="474" name="dateDeFinDeValidite">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
     </column>
     <key id="494" parent="474">
@@ -1357,19 +1357,19 @@
     </key>
     <column id="495" parent="475" name="idLiaison">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="496" parent="475" name="idWindows">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="497" parent="475" name="idClient">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="498" parent="475" name="idEset">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>4</Position>
     </column>
     <foreign-key id="499" parent="475">
@@ -1393,15 +1393,15 @@
     </key>
     <column id="503" parent="476" name="idVille">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="504" parent="476" name="libelle">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="505" parent="476" name="cp">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
     <key id="506" parent="476">
@@ -1410,15 +1410,15 @@
     </key>
     <column id="507" parent="477" name="idWindows">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="508" parent="477" name="dateAchat">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="509" parent="477" name="activationKey">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
     <key id="510" parent="477">
@@ -1426,27 +1426,27 @@
       <Primary>1</Primary>
     </key>
     <column id="511" parent="478" name="locale">
-      <DataType>TEXT|0s</DataType>
+      <DasType>TEXT|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="512" parent="479" name="type">
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="513" parent="479" name="name">
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="514" parent="479" name="tbl_name">
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="515" parent="479" name="rootpage">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="516" parent="479" name="sql">
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="517" parent="480" name="name">

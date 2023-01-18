@@ -59,29 +59,27 @@ public class VilleDAO extends DAO<VILLE> {
         List<VILLE> lesVilles;
         Cursor cVille;
         VILLE uneVille;
-        VilleDAO uneVilleDAO;
         int idVille;
         String libelle;
         String cp;
 
         lesVilles = new ArrayList<>();
         cVille = db.query(TABLE_VILLE, null, null, null, null, null, COL_LIBELLE);
-        cVille.moveToFirst();
 
-        while (!cVille.isAfterLast()) {
+        while (cVille.moveToNext()) {
             idVille = cVille.getInt(0);
             libelle = cVille.getString(1);
-            cp = cVille.getString(1);
+            cp = cVille.getString(2);
             uneVille = new VILLE(idVille, libelle, cp);
             lesVilles.add(uneVille);
-            cVille.moveToNext();
         }
 
         cVille.close();
 
-        return (lesVilles);
+        return lesVilles;
     }
 
+    @Override
     public VILLE read(int id) {
         Cursor cVille;
         VILLE uneVille;
@@ -100,6 +98,7 @@ public class VilleDAO extends DAO<VILLE> {
         }
 
         cVille.close();
+
         return uneVille;
     }
 }

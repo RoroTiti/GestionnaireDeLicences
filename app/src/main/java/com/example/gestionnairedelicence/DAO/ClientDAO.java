@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
 import com.example.gestionnairedelicence.METIER.CLIENT;
 import com.example.gestionnairedelicence.METIER.VILLE;
 
@@ -102,6 +100,7 @@ public class ClientDAO extends DAO<CLIENT> {
         return lesClients;
     }
 
+    @Override
     public CLIENT read(int idClient) {
         CLIENT client = null;
 
